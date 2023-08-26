@@ -45,8 +45,9 @@ public class ListaAdapter extends ArrayAdapter<Inmueble> {
 
         TextView precio=itemView.findViewById(R.id.precio);
         double precioInmueble=inmueble.getPrecio();
-        NumberFormat numberFormat = NumberFormat.getCurrencyInstance(Locale.US);
-        precio.setText(numberFormat.format(precioInmueble));
+        String formatoPrecio = String.format(Locale.US, "USD$ %,.2f", precioInmueble);
+        precio.setText(formatoPrecio);
+
 
         return itemView;
     }
